@@ -2,7 +2,7 @@ const WIDTH = 220;
 const HEIGHT = 48;
 const PADDING = 6;
 
-export default function Sparkline({ points, color = "#2563eb", thresholdY }) {
+export default function Sparkline({ points, color = "var(--nhs-blue)", thresholdY }) {
   if (!points || points.length < 2) {
     return <div className="sparkline-empty">Not enough data</div>;
   }
@@ -26,7 +26,7 @@ export default function Sparkline({ points, color = "#2563eb", thresholdY }) {
           x2={WIDTH - PADDING}
           y1={toY(thresholdY)}
           y2={toY(thresholdY)}
-          stroke="#dc2626"
+          stroke="var(--nhs-red)"
           strokeDasharray="3,3"
           strokeWidth="1"
         />
