@@ -15,7 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.adherence_engine import build_medication_status, summarize_patient_adherence
 from backend.cluster_detector import assess_risk_cluster
-from backend.models import PatientDataset, PatientMedicationState
+from backend.models import DashboardSummary, PatientDataset, PatientMedicationState, PatientSummary
 from backend.umls_mapper import get_medication_info
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
@@ -111,3 +111,31 @@ def get_patient(patient_id: str) -> PatientMedicationState:
     if patient is None:
         raise HTTPException(status_code=404, detail=f"Patient '{patient_id}' not found")
     return patient
+
+
+@app.get("/dashboard")
+def dashboard() -> DashboardSummary:
+    patients = list(PATIENT_STORE.values())
+    summaries = [
+        PatientSummary(
+            patient_id=p.patient_id,
+            name=p.name,
+            age=p.age,
+            conditions=p.conditions,
+            cluster_flag=p.risk_assessment.cluster_flag,
+            signal_count=p.risk_assessment.signal_count,
+            urgency_score=p.risk_assessment.urgency_score,
+            overall_compliance_score=p.overall_compliance_score,
+            top_rationale=p.risk_assessment.rationale[0] if p.risk_assessment.rationale else None,
+        )
+        for p in patients
+    ]
+    summaries.sort(key=lambda s: (-s.urgency_score, s.name))
+    needing_attention = sum(1 for s in summaries if s.cluster_flag)
+
+    return DashboardSummary(
+        total_patients=len(summaries),
+        patients_needing_attention=needing_attention,
+        summary_message=f"{needing_attention} of {len(summaries)} patients need attention this week",
+        patients=summaries,
+    )

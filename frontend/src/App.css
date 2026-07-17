@@ -1,0 +1,207 @@
+.app-shell {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+.subtitle {
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.loading,
+.error {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--text);
+}
+
+.error {
+  color: var(--red);
+}
+
+/* --- Dashboard --- */
+
+.summary-banner {
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+}
+
+.summary-banner.urgent {
+  background: var(--red-bg);
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.summary-banner.clear {
+  background: var(--green-bg);
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.patient-table,
+.med-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.patient-table th,
+.patient-table td,
+.med-table th,
+.med-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.patient-table th,
+.med-table th {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.patient-table tr:last-child td,
+.med-table tr:last-child td {
+  border-bottom: none;
+}
+
+.row-flagged {
+  background: color-mix(in srgb, var(--red-bg) 40%, transparent);
+}
+
+.patient-link {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.patient-link:hover {
+  text-decoration: underline;
+}
+
+.conditions-cell {
+  color: var(--text);
+  font-size: 13px;
+}
+
+/* --- Badges --- */
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  margin: 2px 4px 2px 0;
+  white-space: nowrap;
+}
+
+.badge-red {
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+.badge-amber {
+  background: var(--amber-bg);
+  color: var(--amber);
+}
+
+.badge-green {
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+/* --- Patient detail --- */
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.patient-header {
+  margin-bottom: 20px;
+}
+
+.patient-id {
+  font-weight: 400;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.badge-row {
+  margin-top: 8px;
+}
+
+.risk-panel {
+  background: var(--red-bg);
+  border: 1px solid var(--red);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+}
+
+.risk-panel h2 {
+  color: var(--red);
+}
+
+.rationale-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.rationale-list li {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.patient-detail section {
+  margin-bottom: 28px;
+}
+
+.drug-class,
+.special-notes {
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.vitals-section {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.vitals-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  flex: 1;
+  min-width: 240px;
+}
+
+.vitals-footnote {
+  font-size: 12px;
+  color: var(--text);
+  margin-top: 6px;
+}
+
+.sparkline-empty {
+  font-size: 13px;
+  color: var(--text);
+  padding: 16px 0;
+}

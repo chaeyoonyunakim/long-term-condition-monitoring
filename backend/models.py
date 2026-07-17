@@ -132,3 +132,24 @@ class PatientMedicationState(BaseModel):
         description="True if any medication shows a declining adherence trend",
     )
     risk_assessment: RiskClusterAssessment
+
+
+class PatientSummary(BaseModel):
+    patient_id: str
+    name: str
+    age: int
+    conditions: list[str]
+    cluster_flag: bool
+    signal_count: int
+    urgency_score: int
+    overall_compliance_score: float
+    top_rationale: str | None = Field(
+        default=None, description="Highest-signal reason, for a compact list view"
+    )
+
+
+class DashboardSummary(BaseModel):
+    total_patients: int
+    patients_needing_attention: int
+    summary_message: str
+    patients: list[PatientSummary]
