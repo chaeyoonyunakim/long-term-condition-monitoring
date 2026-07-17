@@ -78,6 +78,21 @@ class MedicationRefillStatus(BaseModel):
     gap_flag: bool = Field(
         description="True if days_since_last_refill exceeds the 30-day adherence threshold"
     )
+    compliance_score: float = Field(
+        description="Actual vs. expected refills over the observed history, 0-100"
+    )
+    trend_slope: float | None = Field(
+        default=None,
+        description=(
+            "Percentage-point change in compliance score between the prior and "
+            "current 90-day windows. Negative = declining adherence. None if the "
+            "refill history doesn't span two full windows yet."
+        ),
+    )
+    declining_flag: bool = Field(
+        default=False,
+        description="True if trend_slope indicates a >10 point compliance decline",
+    )
 
 
 class PatientMedicationState(BaseModel):
@@ -89,3 +104,10 @@ class PatientMedicationState(BaseModel):
     bp_readings: list[BPReading]
     weight_history: list[WeightRecord]
     labs: list[LabResult]
+    overall_compliance_score: float = Field(
+        description="Average compliance score across all medications"
+    )
+    adherence_declining: bool = Field(
+        default=False,
+        description="True if any medication shows a declining adherence trend",
+    )
