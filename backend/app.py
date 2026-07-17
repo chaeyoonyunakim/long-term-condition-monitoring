@@ -14,8 +14,9 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.adherence_engine import build_medication_status, summarize_patient_adherence
+from backend.audit_log import get_full_log, get_patient_log, record_event, verify_chain_integrity
 from backend.cluster_detector import assess_risk_cluster
-from backend.models import DashboardSummary, PatientDataset, PatientMedicationState, PatientSummary
+from backend.models import AuditLogResponse, DashboardSummary, PatientDataset, PatientMedicationState, PatientSummary
 from backend.umls_mapper import get_medication_info
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
@@ -59,6 +60,29 @@ def _enrich_patient(raw, reference_date: date) -> PatientMedicationState:
         labs=raw.labs,
         reference_date=reference_date,
     )
+
+    for med in medications:
+        if med.gap_flag:
+            record_event(
+                patient_id=raw.id,
+                event_type="medication_refill_gap",
+                summary=f"{med.drug} refill gap of {med.days_since_last_refill} days",
+                rationale=[
+                    f"Last refill {med.last_refill_date}, expected every {med.expected_refill_days} days",
+                    f"Compliance score: {med.compliance_score}%",
+                ],
+            )
+    record_event(
+        patient_id=raw.id,
+        event_type="risk_cluster_assessment",
+        summary=(
+            f"HIGH CVD RISK CLUSTER ({risk_assessment.signal_count}/5 signals, urgency {risk_assessment.urgency_score})"
+            if risk_assessment.cluster_flag
+            else f"No cluster ({risk_assessment.signal_count}/5 signals)"
+        ),
+        rationale=risk_assessment.rationale or ["No signals triggered"],
+    )
+
     return PatientMedicationState(
         patient_id=raw.id,
         name=raw.name,
@@ -139,3 +163,15 @@ def dashboard() -> DashboardSummary:
         summary_message=f"{needing_attention} of {len(summaries)} patients need attention this week",
         patients=summaries,
     )
+
+
+@app.get("/audit-log")
+def audit_log() -> AuditLogResponse:
+    return AuditLogResponse(chain_intact=verify_chain_integrity(), entries=get_full_log())
+
+
+@app.get("/patients/{patient_id}/audit-log")
+def patient_audit_log(patient_id: str) -> AuditLogResponse:
+    if patient_id not in PATIENT_STORE:
+        raise HTTPException(status_code=404, detail=f"Patient '{patient_id}' not found")
+    return AuditLogResponse(chain_intact=verify_chain_integrity(), entries=get_patient_log(patient_id))

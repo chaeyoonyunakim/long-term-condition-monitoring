@@ -8,7 +8,7 @@ Two layers:
 
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, datetime
 
 from pydantic import BaseModel, Field
 
@@ -153,3 +153,21 @@ class DashboardSummary(BaseModel):
     patients_needing_attention: int
     summary_message: str
     patients: list[PatientSummary]
+
+
+class AuditLogEntry(BaseModel):
+    sequence: int
+    entry_hash: str = Field(description="SHA-256 of this entry chained to prev_hash")
+    prev_hash: str
+    timestamp: datetime
+    patient_id: str
+    event_type: str
+    summary: str
+    rationale: list[str]
+
+
+class AuditLogResponse(BaseModel):
+    chain_intact: bool = Field(
+        description="True if every entry's hash still matches its recomputed value — proof the log hasn't been tampered with"
+    )
+    entries: list[AuditLogEntry]
