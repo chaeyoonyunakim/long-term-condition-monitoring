@@ -1,0 +1,56 @@
+{
+  "atorvastatin": {
+    "generic_name": "Atorvastatin",
+    "bnf_code": "2.12",
+    "snomed": "55396009",
+    "drug_class": "Statin (HMG-CoA reductase inhibitor)",
+    "indication": "CVD prevention — lipid lowering",
+    "cvd_relevant": true,
+    "special_notes": "Kidney protection in CKD via lipid control; discontinuation linked to rebound cardiovascular risk"
+  },
+  "lisinopril": {
+    "generic_name": "Lisinopril",
+    "bnf_code": "2.5.1",
+    "snomed": "36626009",
+    "drug_class": "ACE inhibitor",
+    "indication": "Cardiac protection, blood pressure control",
+    "cvd_relevant": true,
+    "special_notes": "Kidney and cardiac remodeling protection post-MI; abrupt discontinuation raises BP and renal risk"
+  },
+  "ramipril": {
+    "generic_name": "Ramipril",
+    "bnf_code": "2.5.1",
+    "snomed": "319864006",
+    "drug_class": "ACE inhibitor",
+    "indication": "Cardiac and renal protection, blood pressure control",
+    "cvd_relevant": true,
+    "special_notes": "Kidney protection in CKD"
+  },
+  "metformin": {
+    "generic_name": "Metformin",
+    "bnf_code": "6.1.2.2",
+    "snomed": "109081006",
+    "drug_class": "Biguanide",
+    "indication": "Type 2 diabetes glycemic control",
+    "cvd_relevant": true,
+    "special_notes": "Glycemic control reduces microvascular and macrovascular (CVD) complications"
+  },
+  "amlodipine": {
+    "generic_name": "Amlodipine",
+    "bnf_code": "2.6.2",
+    "snomed": "386864001",
+    "drug_class": "Calcium channel blocker",
+    "indication": "Hypertension management",
+    "cvd_relevant": true,
+    "special_notes": "First-line antihypertensive, CVD risk reduction"
+  },
+  "aspirin": {
+    "generic_name": "Aspirin (low-dose)",
+    "bnf_code": "2.9",
+    "snomed": "387458008",
+    "drug_class": "Antiplatelet",
+    "indication": "Secondary CVD prevention post-MI/stent",
+    "cvd_relevant": true,
+    "special_notes": "Discontinuation sharply raises risk of stent thrombosis or recurrent MI"
+  }
+}

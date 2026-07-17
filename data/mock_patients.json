@@ -1,0 +1,213 @@
+{
+  "patients": [
+    {
+      "id": "P001",
+      "name": "Ahmed",
+      "age": 68,
+      "conditions": ["Type 2 Diabetes", "Hypertension", "CKD Stage 3b"],
+      "medications": [
+        {"name": "Atorvastatin", "expected_refill_days": 30},
+        {"name": "Ramipril", "expected_refill_days": 30},
+        {"name": "Metformin", "expected_refill_days": 30}
+      ],
+      "refill_history": [
+        {"date": "2026-07-05", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-06-05", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-05-06", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-04-06", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-03-07", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-02-05", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-07-03", "drug": "Ramipril", "quantity": 30},
+        {"date": "2026-06-04", "drug": "Ramipril", "quantity": 30},
+        {"date": "2026-05-05", "drug": "Ramipril", "quantity": 30},
+        {"date": "2026-04-05", "drug": "Ramipril", "quantity": 30},
+        {"date": "2026-03-06", "drug": "Ramipril", "quantity": 30},
+        {"date": "2026-02-04", "drug": "Ramipril", "quantity": 30},
+        {"date": "2026-07-06", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-06-06", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-05-07", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-04-07", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-03-08", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-02-06", "drug": "Metformin", "quantity": 30}
+      ],
+      "bp_readings": [
+        {"date": "2026-07-15", "systolic": 132, "diastolic": 80},
+        {"date": "2026-06-15", "systolic": 130, "diastolic": 79},
+        {"date": "2026-05-15", "systolic": 129, "diastolic": 78},
+        {"date": "2026-04-15", "systolic": 131, "diastolic": 80}
+      ],
+      "weight_history": [
+        {"date": "2026-07-15", "kg": 82},
+        {"date": "2026-06-15", "kg": 81.5},
+        {"date": "2026-05-15", "kg": 81},
+        {"date": "2026-04-15", "kg": 81}
+      ],
+      "labs": [
+        {"date": "2026-06-15", "test": "triglycerides", "value": 145, "unit": "mg/dL"},
+        {"date": "2026-06-15", "test": "LDL", "value": 92, "unit": "mg/dL"}
+      ]
+    },
+    {
+      "id": "P002",
+      "name": "Priya",
+      "age": 72,
+      "conditions": ["CVD post-MI", "Hypertension", "Type 2 Diabetes"],
+      "medications": [
+        {"name": "Atorvastatin", "expected_refill_days": 30},
+        {"name": "Lisinopril", "expected_refill_days": 30},
+        {"name": "Metformin", "expected_refill_days": 30}
+      ],
+      "refill_history": [
+        {"date": "2026-06-09", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-05-10", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-04-10", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-03-11", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-02-09", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-05-26", "drug": "Lisinopril", "quantity": 30},
+        {"date": "2026-04-26", "drug": "Lisinopril", "quantity": 30},
+        {"date": "2026-03-27", "drug": "Lisinopril", "quantity": 30},
+        {"date": "2026-02-25", "drug": "Lisinopril", "quantity": 30},
+        {"date": "2026-07-16", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-06-18", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-05-16", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-04-14", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-03-12", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-02-10", "drug": "Metformin", "quantity": 30}
+      ],
+      "bp_readings": [
+        {"date": "2026-04-15", "systolic": 130, "diastolic": 80},
+        {"date": "2026-05-01", "systolic": 133, "diastolic": 82},
+        {"date": "2026-06-01", "systolic": 138, "diastolic": 85},
+        {"date": "2026-06-20", "systolic": 144, "diastolic": 87},
+        {"date": "2026-07-15", "systolic": 151, "diastolic": 88}
+      ],
+      "weight_history": [
+        {"date": "2026-04-15", "kg": 83},
+        {"date": "2026-05-15", "kg": 85},
+        {"date": "2026-06-15", "kg": 87},
+        {"date": "2026-07-15", "kg": 89}
+      ],
+      "labs": [
+        {"date": "2026-02-15", "test": "LDL", "value": 98, "unit": "mg/dL"},
+        {"date": "2026-05-15", "test": "LDL", "value": 118, "unit": "mg/dL"},
+        {"date": "2026-06-15", "test": "triglycerides", "value": 275, "unit": "mg/dL"}
+      ]
+    },
+    {
+      "id": "P003",
+      "name": "Marcus",
+      "age": 75,
+      "conditions": ["CVD", "Hypertension", "CKD Stage 3"],
+      "medications": [
+        {"name": "Lisinopril", "expected_refill_days": 30},
+        {"name": "Atorvastatin", "expected_refill_days": 30},
+        {"name": "Aspirin", "expected_refill_days": 30}
+      ],
+      "refill_history": [
+        {"date": "2026-06-05", "drug": "Lisinopril", "quantity": 30},
+        {"date": "2026-05-06", "drug": "Lisinopril", "quantity": 30},
+        {"date": "2026-04-05", "drug": "Lisinopril", "quantity": 30},
+        {"date": "2026-03-06", "drug": "Lisinopril", "quantity": 30},
+        {"date": "2026-02-04", "drug": "Lisinopril", "quantity": 30},
+        {"date": "2026-07-10", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-06-10", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-05-11", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-04-11", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-03-12", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-07-12", "drug": "Aspirin", "quantity": 30},
+        {"date": "2026-06-12", "drug": "Aspirin", "quantity": 30},
+        {"date": "2026-05-13", "drug": "Aspirin", "quantity": 30},
+        {"date": "2026-04-13", "drug": "Aspirin", "quantity": 30},
+        {"date": "2026-03-14", "drug": "Aspirin", "quantity": 30}
+      ],
+      "bp_readings": [
+        {"date": "2026-04-05", "systolic": 136, "diastolic": 84},
+        {"date": "2026-05-05", "systolic": 138, "diastolic": 85},
+        {"date": "2026-06-05", "systolic": 142, "diastolic": 88}
+      ],
+      "weight_history": [
+        {"date": "2026-05-15", "kg": 77.5},
+        {"date": "2026-07-15", "kg": 78}
+      ],
+      "labs": [
+        {"date": "2026-05-15", "test": "triglycerides", "value": 160, "unit": "mg/dL"},
+        {"date": "2026-05-15", "test": "LDL", "value": 105, "unit": "mg/dL"}
+      ]
+    },
+    {
+      "id": "P004",
+      "name": "Eleanor",
+      "age": 70,
+      "conditions": ["Hypertension"],
+      "medications": [
+        {"name": "Amlodipine", "expected_refill_days": 30}
+      ],
+      "refill_history": [
+        {"date": "2026-07-14", "drug": "Amlodipine", "quantity": 30},
+        {"date": "2026-06-14", "drug": "Amlodipine", "quantity": 30},
+        {"date": "2026-05-15", "drug": "Amlodipine", "quantity": 30},
+        {"date": "2026-04-15", "drug": "Amlodipine", "quantity": 30},
+        {"date": "2026-03-16", "drug": "Amlodipine", "quantity": 30},
+        {"date": "2026-02-14", "drug": "Amlodipine", "quantity": 30}
+      ],
+      "bp_readings": [
+        {"date": "2026-07-15", "systolic": 128, "diastolic": 78},
+        {"date": "2026-06-15", "systolic": 126, "diastolic": 76},
+        {"date": "2026-05-15", "systolic": 129, "diastolic": 79},
+        {"date": "2026-04-15", "systolic": 127, "diastolic": 77}
+      ],
+      "weight_history": [
+        {"date": "2026-07-15", "kg": 68},
+        {"date": "2026-06-15", "kg": 68},
+        {"date": "2026-05-15", "kg": 67.5},
+        {"date": "2026-04-15", "kg": 68}
+      ],
+      "labs": [
+        {"date": "2026-05-15", "test": "triglycerides", "value": 150, "unit": "mg/dL"},
+        {"date": "2026-05-15", "test": "LDL", "value": 110, "unit": "mg/dL"}
+      ]
+    },
+    {
+      "id": "P005",
+      "name": "David",
+      "age": 80,
+      "conditions": ["Type 2 Diabetes", "Hypertension", "Hyperlipidemia"],
+      "medications": [
+        {"name": "Metformin", "expected_refill_days": 30},
+        {"name": "Atorvastatin", "expected_refill_days": 30},
+        {"name": "Lisinopril", "expected_refill_days": 30}
+      ],
+      "refill_history": [
+        {"date": "2026-07-10", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-06-11", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-05-12", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-04-12", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-03-13", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-02-11", "drug": "Metformin", "quantity": 30},
+        {"date": "2026-06-25", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-04-02", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-02-01", "drug": "Atorvastatin", "quantity": 30},
+        {"date": "2026-07-05", "drug": "Lisinopril", "quantity": 30},
+        {"date": "2026-05-20", "drug": "Lisinopril", "quantity": 30},
+        {"date": "2026-03-15", "drug": "Lisinopril", "quantity": 30}
+      ],
+      "bp_readings": [
+        {"date": "2026-04-10", "systolic": 133, "diastolic": 83},
+        {"date": "2026-05-10", "systolic": 130, "diastolic": 81},
+        {"date": "2026-06-10", "systolic": 132, "diastolic": 82},
+        {"date": "2026-07-10", "systolic": 134, "diastolic": 84}
+      ],
+      "weight_history": [
+        {"date": "2026-04-15", "kg": 78},
+        {"date": "2026-05-15", "kg": 79.5},
+        {"date": "2026-06-15", "kg": 81},
+        {"date": "2026-07-15", "kg": 82}
+      ],
+      "labs": [
+        {"date": "2026-02-15", "test": "LDL", "value": 100, "unit": "mg/dL"},
+        {"date": "2026-06-15", "test": "LDL", "value": 148, "unit": "mg/dL"},
+        {"date": "2026-06-15", "test": "triglycerides", "value": 190, "unit": "mg/dL"}
+      ]
+    }
+  ]
+}
