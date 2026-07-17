@@ -14,6 +14,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.adherence_engine import build_medication_status, summarize_patient_adherence
+from backend.cluster_detector import assess_risk_cluster
 from backend.models import PatientDataset, PatientMedicationState
 from backend.umls_mapper import get_medication_info
 
@@ -51,6 +52,13 @@ def _enrich_patient(raw, reference_date: date) -> PatientMedicationState:
         for med in raw.medications
     ]
     overall_compliance_score, adherence_declining = summarize_patient_adherence(medications)
+    risk_assessment = assess_risk_cluster(
+        medications=medications,
+        bp_readings=raw.bp_readings,
+        weight_history=raw.weight_history,
+        labs=raw.labs,
+        reference_date=reference_date,
+    )
     return PatientMedicationState(
         patient_id=raw.id,
         name=raw.name,
@@ -62,6 +70,7 @@ def _enrich_patient(raw, reference_date: date) -> PatientMedicationState:
         labs=raw.labs,
         overall_compliance_score=overall_compliance_score,
         adherence_declining=adherence_declining,
+        risk_assessment=risk_assessment,
     )
 
 

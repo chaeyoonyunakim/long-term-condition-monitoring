@@ -95,6 +95,26 @@ class MedicationRefillStatus(BaseModel):
     )
 
 
+class RiskSignals(BaseModel):
+    medication_nonadherence: bool
+    bp_elevation: bool
+    weight_gain: bool
+    lipid_drift: bool
+    monitoring_lapse: bool
+
+
+class RiskClusterAssessment(BaseModel):
+    signals: RiskSignals
+    signal_count: int = Field(ge=0, le=5)
+    cluster_flag: bool = Field(
+        description="True if signal_count >= 3 (HIGH CVD RISK CLUSTER)"
+    )
+    urgency_score: int = Field(ge=0, le=10)
+    rationale: list[str] = Field(
+        description="Human-readable reason per triggered signal, for the audit trail"
+    )
+
+
 class PatientMedicationState(BaseModel):
     patient_id: str
     name: str
@@ -111,3 +131,4 @@ class PatientMedicationState(BaseModel):
         default=False,
         description="True if any medication shows a declining adherence trend",
     )
+    risk_assessment: RiskClusterAssessment
